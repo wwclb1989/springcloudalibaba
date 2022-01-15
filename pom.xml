@@ -26,6 +26,13 @@
         <module>nacos-provider-sample8081</module>
         <module>nacos-provider-sample8082</module>
         <module>nacos-consumer-sample</module>
+        <module>ribbon-consumer-sample</module>
+        <module>dubbo-api</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <module>user-provider</module>
+        <module>shop-provider</module>
+        <module>gateway-sample</module>
     </modules>
 
     <dependencyManagement>

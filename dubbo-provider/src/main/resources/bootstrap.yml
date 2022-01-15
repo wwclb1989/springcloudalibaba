@@ -1,0 +1,42 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: dubbo-provider
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.47.129:8080
+    nacos:
+      discovery:
+        server-addr: 192.168.47.129:8848
+      config:
+        server-addr: 192.168.47.129:8848
+        file-extension: yml
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  sentinel:
+    enabled: true
+
+dubbo:
+  application:
+    name: dubbo-provider
+  scan:
+    base-packages: com.springcloudalibaba.dubboapi.service
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://192.168.47.129:8848
