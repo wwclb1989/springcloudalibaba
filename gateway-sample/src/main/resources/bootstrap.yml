@@ -4,37 +4,11 @@ server:
 spring:
   application:
     name: gateway-sample
+  profiles:
+    active: dev
 
   cloud:
-    sentinel:
-      transport:
-        port: 8719
-        dashboard: 192.168.47.129:8080
-
     nacos:
-      discovery:
-        server-addr: 192.168.47.129:8848
       config:
         server-addr: 192.168.47.129:8848
         file-extension: yml
-
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-
-      routes:
-        - id: user_route
-          uri: lb://user-provider
-          predicates:
-            - Path=/user/**
-        - id: shop_route
-          uri: lb://shop-provider
-          predicates:
-            - Path=/shop/**
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'

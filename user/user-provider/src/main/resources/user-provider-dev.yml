@@ -1,0 +1,35 @@
+# 放到nacos配置
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.47.129:8080
+
+    nacos:
+      discovery:
+        server-addr: 192.168.47.129:8848
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+feign:
+  sentinel:
+    enabled: true
+
+dubbo:
+  application:
+    name: user-provider
+  registry:
+    address: nacos://192.168.47.129:8848
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+    base-packages: com.springcloudalibaba.user.rpcapi
+  cloud:
+    subscribed-services: shop-provider
