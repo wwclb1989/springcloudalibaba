@@ -1,9 +1,12 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
-    name: gateway-sample
+    name: shop-provider
+
+  profiles:
+    active: dev
 
   cloud:
     sentinel:
@@ -18,23 +21,12 @@ spring:
         server-addr: 192.168.47.129:8848
         file-extension: yml
 
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-
-      routes:
-        - id: user_route
-          uri: lb://user-provider
-          predicates:
-            - Path=/user/**
-        - id: shop_route
-          uri: lb://shop-provider
-          predicates:
-            - Path=/shop/**
-
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+feign:
+  sentinel:
+    enabled: true

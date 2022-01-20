@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
+        <version>2.4.2</version>
     </parent>
 
     <groupId>com.springcloudalibaba</groupId>
@@ -18,21 +18,17 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
     </properties>
 
     <modules>
-        <module>nacos-provider-sample8081</module>
-        <module>nacos-provider-sample8082</module>
-        <module>nacos-consumer-sample</module>
-        <module>ribbon-consumer-sample</module>
         <module>dubbo-api</module>
-        <module>dubbo-provider</module>
         <module>dubbo-consumer</module>
-        <module>user-provider</module>
-        <module>shop-provider</module>
+        <module>dubbo-provider</module>
         <module>gateway-sample</module>
+        <module>shop</module>
+        <module>user</module>
     </modules>
 
     <dependencyManagement>
