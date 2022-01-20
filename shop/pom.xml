@@ -16,6 +16,7 @@
     <modules>
         <module>shop-provider</module>
         <module>shop-api</module>
+        <module>shop-rpc</module>
     </modules>
 
 </project>

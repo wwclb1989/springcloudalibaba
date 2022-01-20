@@ -23,9 +23,6 @@
     </properties>
 
     <modules>
-        <module>dubbo-api</module>
-        <module>dubbo-consumer</module>
-        <module>dubbo-provider</module>
         <module>gateway-sample</module>
         <module>shop</module>
         <module>user</module>

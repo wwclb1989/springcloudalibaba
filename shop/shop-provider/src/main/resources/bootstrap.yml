@@ -30,3 +30,16 @@ management:
 feign:
   sentinel:
     enabled: true
+
+dubbo:
+  application:
+    name: shop-provider
+  registry:
+    address: nacos://192.168.47.129:8848
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.springcloudalibaba.shop.rpcapi
+  cloud:
+    subscribed-services: user-provider

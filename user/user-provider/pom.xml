@@ -52,6 +52,22 @@
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
         <!-- feign公共api -->
         <dependency>
             <groupId>com.springcloudalibaba</groupId>
@@ -62,6 +78,19 @@
         <dependency>
             <groupId>com.springcloudalibaba</groupId>
             <artifactId>user-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- dubbo公共api -->
+        <dependency>
+            <groupId>com.springcloudalibaba</groupId>
+            <artifactId>shop-rpc</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.springcloudalibaba</groupId>
+            <artifactId>user-rpc</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
