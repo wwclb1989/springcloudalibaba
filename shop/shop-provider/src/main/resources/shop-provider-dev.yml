@@ -35,3 +35,5 @@ dubbo:
     base-packages: com.springcloudalibaba.shop.rpcapi
   cloud:
     subscribed-services: user-provider
+  consumer:
+    check: false

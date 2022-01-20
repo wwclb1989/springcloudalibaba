@@ -39,7 +39,7 @@ public class ShopController implements ShopRemoteService {
     }
 
     /**
-     * 测试feign接口
+     * 测试dubbo接口
      * @param userId
      * @return
      */
@@ -48,6 +48,10 @@ public class ShopController implements ShopRemoteService {
         return rpcUserService.getUserById(userId);
     }
 
+    /**
+     * 测试nacos config
+     * @return
+     */
     @RequestMapping("/shop/testConfig")
     public String testConfig() {
         return customerName;
