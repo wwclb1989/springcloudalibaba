@@ -1,0 +1,19 @@
+seata:
+  enabled: true
+  application-id: user-provider
+  tx-service-group: my_test_tx_group
+  enable-auto-data-source-proxy: true
+
+  config:
+    type: nacos
+    nacos:
+      namespace:
+      serverAddr: 192.168.47.129:8848
+      group: SEATA_GROUP
+
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.47.129:8848
+      namespace:

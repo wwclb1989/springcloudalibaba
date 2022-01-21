@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -59,5 +60,17 @@ public class ShopController implements ShopRemoteService {
     @RequestMapping("/shop/testConfig")
     public String testConfig() {
         return customerName;
+    }
+
+    @RequestMapping("/shop/addShop")
+    public String addShop(@RequestParam String shopName) {
+        shopService.addShop(shopName);
+        return "success";
+    }
+
+    @RequestMapping("/shop/addShopUser")
+    public String addShop(@RequestParam String shopName, @RequestParam String userName) {
+        shopService.addShopUser(shopName, userName);
+        return "success";
     }
 }

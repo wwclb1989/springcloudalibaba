@@ -10,4 +10,9 @@ public class UserRemoteServiceFallBack implements UserRemoteService {
     public String getUser(Integer userId) {
         return "用户服务不可用";
     }
+
+    @Override
+    public String addUser(String userName) {
+        return "用户服务不可用";
+    }
 }

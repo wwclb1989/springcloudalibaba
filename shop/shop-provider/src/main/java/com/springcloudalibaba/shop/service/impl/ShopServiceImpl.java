@@ -2,10 +2,13 @@ package com.springcloudalibaba.shop.service.impl;
 
 import com.springcloudalibaba.shop.service.ShopService;
 import com.springcloudalibaba.user.api.UserRemoteService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +19,9 @@ public class ShopServiceImpl implements ShopService {
 
     @Autowired
     private UserRemoteService userRemoteService;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     private final Map<Integer, String> shopInfo = new HashMap<Integer, String>() {{
         put(1, "万顺福小卖部");
@@ -35,4 +41,21 @@ public class ShopServiceImpl implements ShopService {
         logger.info("shop服务调用feign客户端查询用户，userId = {}", userId);
         return userRemoteService.getUser(userId);
     }
+
+    @Override
+    public void addShop(String shopName) {
+        String sql = "insert into shop_info(name) values (?)";
+        jdbcTemplate.update(sql, shopName);
+    }
+
+    @Transactional
+    @GlobalTransactional
+    @Override
+    public void addShopUser(String shopName, String userName) {
+        addShop(shopName);
+
+        userRemoteService.addUser(userName);
+        throw new RuntimeException();
+    }
+
 }

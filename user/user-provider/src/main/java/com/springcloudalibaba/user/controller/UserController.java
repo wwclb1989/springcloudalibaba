@@ -26,6 +26,12 @@ public class UserController implements UserRemoteService {
         return userService.getUserById(userId);
     }
 
+    @Override
+    public String addUser(String userName) {
+        userService.addUser(userName);
+        return "success";
+    }
+
     /**
      * 测试feign
      * @param shopId
@@ -41,6 +47,8 @@ public class UserController implements UserRemoteService {
         logger.info("user服务调用dubbo接口查询商户，shopId = {}", shopId);
         return rpcShopService.getShopById(shopId);
     }
+
+
 
 
 }

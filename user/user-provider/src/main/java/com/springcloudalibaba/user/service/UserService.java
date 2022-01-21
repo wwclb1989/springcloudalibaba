@@ -5,4 +5,6 @@ public interface UserService {
     String getUserById(Integer userId);
 
     String getShopById(Integer shopId);
+
+    void addUser(String userName);
 }

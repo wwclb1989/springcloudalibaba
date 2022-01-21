@@ -12,4 +12,7 @@ public interface UserRemoteService {
     @RequestMapping(value = "/user/findById", method = RequestMethod.GET)
     String getUser(@RequestParam Integer userId);
 
+    @RequestMapping(value = "/user/addUser", method = RequestMethod.GET)
+    String addUser(@RequestParam String userName);
+
 }
