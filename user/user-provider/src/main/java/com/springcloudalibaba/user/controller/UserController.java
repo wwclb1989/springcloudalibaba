@@ -4,6 +4,8 @@ import com.springcloudalibaba.shop.rpcapi.RpcShopService;
 import com.springcloudalibaba.user.api.UserRemoteService;
 import com.springcloudalibaba.user.service.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController implements UserRemoteService {
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -35,6 +38,7 @@ public class UserController implements UserRemoteService {
 
     @RequestMapping("/user/findShop/{shopId}")
     public String findShop(@PathVariable Integer shopId) {
+        logger.info("user服务调用dubbo接口查询商户，shopId = {}", shopId);
         return rpcShopService.getShopById(shopId);
     }
 
