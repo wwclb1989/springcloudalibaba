@@ -1,15 +1,18 @@
 # 放到nacos配置
 spring:
   cloud:
+    # sentinel配置
     sentinel:
       transport:
         port: 8719
-        dashboard: 192.168.47.129:8080
+        dashboard: 192.168.47.129:9000
 
+    # nacos服务发现配置
     nacos:
       discovery:
         server-addr: 192.168.47.129:8848
 
+    # 开启动态路由
     gateway:
       discovery:
         locator:
@@ -24,6 +27,7 @@ spring:
           predicates:
             - Path=/shop/**
 
+# actuator配置
 management:
   endpoints:
     web:

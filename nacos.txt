@@ -1,0 +1,45 @@
+一、安装nacos
+下载地址：
+1. 使用mysql，初始化sql路径conf/nacos-mysql.sql
+2. 修改conf/application.properties
+3. 启动：./bin/startup.sh -m standalone
+
+二、安装sentinel
+下载地址：https://github.com/alibaba/sentinel/releases
+启动：nohup java -jar -Dserver.port=9000 sentinel-dashboard-1.8.3.jar &
+
+三、安装seata
+下载地址：
+1. 修改conf/registry.conf
+registry {
+  # file 、nacos 、eureka、redis、zk、consul、etcd3、sofa
+  type = "nacos"
+  nacos {
+    application = "seata-server"
+    serverAddr = "127.0.0.1:8848"
+    group = "SEATA_GROUP"
+    namespace = "public"
+    cluster = "default"
+    username = ""
+    password = ""
+  }
+}
+config {
+  # file、nacos 、apollo、zk、consul、etcd3
+  type = "file"
+  nacos {
+    serverAddr = "127.0.0.1:8848"
+    namespace = ""
+    group = "SEATA_GROUP"
+    username = ""
+    password = ""
+  }
+}
+2. 新建数据库seata，初始化sql
+source server-mysql.sql
+3. 业务数据库新建日志表undo_log
+source client-mysql.sql
+4. 提交配置到nacos配置中心
+./nacos-config.sh 127.0.0.1:8848
+5. 启动seata：
+nohup ./bin/seata-server.sh -h 192.168.47.129 &
